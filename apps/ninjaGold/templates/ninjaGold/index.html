@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold</title>
+</head>
+
+<body>
+
+    <p>Farm</p>
+    <p>(Earn 10-20 gold)</p>
+    <p>Current Gold {{gold}}</p>
+
+    <form action="/process" method="POST">
+
+        {%csrf_token%}
+        
+        <input type="hidden" name="place" value="Farming">
+
+        <input type="submit" value="Farm">
+
+        </form>    
+
+
+        <p>Cave</p>
+        <p>(Earn 5-10 gold)</p>
+    
+        <form action="/process" method="POST">
+            
+            {%csrf_token%}
+            
+            <input type="hidden" name="place" value="Caveing">
+    
+            <input type="submit" value="Cave">
+    
+            </form>    
+
+
+        <p>House</p>
+        <p>(Earn 2-5 gold)</p>
+    
+        <form action="/process" method="POST">
+            
+            {%csrf_token%}
+            
+            <input type="hidden" name="place" value="Housing">
+    
+            <input type="submit" value="House">
+    
+            </form>    
+
+
+        <p>Casino</p>
+        <p>(Earns/Takes 50 gold)</p>
+    
+        <form action="/process" method="POST">
+            
+            {%csrf_token%}
+            
+            <input type="hidden" name="place" value="Casinoing">
+    
+            <input type="submit" value="Casino">
+    
+            </form> 
+
+        <h3>Keep on playing!</h3>
+        {%for i in msg%}
+            <p>{{i}}</p>
+        {%endfor%}
+            
+</body>
+
+</html>
